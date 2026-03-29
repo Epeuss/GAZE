@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Gaze-Annotated Video Anomaly Detection Benchmark</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="site-logo">GAVAD Benchmark</div>
+            <nav class="site-nav">
+                <a href="#home">Home</a>
+                <a href="#showcase">Showcase</a>
+                <a href="#equipment">Equipment</a>
+                <a href="#structure">Structure</a>
+                <a href="#download">Download</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section" id="home">
+        <div class="container hero-grid">
+            <div class="hero-left">
+                <div class="hero-tag">Eye Tracking · Video Anomaly Detection</div>
+                <h1>Gaze-Annotated Video Anomaly Detection Benchmark</h1>
+                <p class="hero-desc">
+                    A browsing and visualization platform for gaze-annotated video anomaly detection data.
+                    We collected gaze signals on both the Shanghaitech and UBnormal datasets, and organized the results
+                    into frame-level overlay images and coordinate txt files for convenient inspection, analysis,
+                    and benchmark construction.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#download">Download Dataset</a>
+                    <a class="btn btn-secondary" href="#showcase">View Showcase</a>
+                    
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="info-panel">
+                    <h3>Platform Highlights</h3>
+
+                    <div class="info-item">
+                        <span class="info-label">Supported datasets</span>
+                        <span class="info-value">{{ datasets|length }}</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Collected datasets</span>
+                        <span class="info-value">Shanghaitech, UBnormal</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Data types</span>
+                        <span class="info-value">Image + TXT</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">View mode</span>
+                        <span class="info-value">Frame-level</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Sampling rate</span>
+                        <span class="info-value">100 Hz</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Viewing time</span>
+                        <span class="info-value">1.0 s</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Points per frame</span>
+                        <span class="info-value">70–100</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">Visualization</span>
+                        <span class="info-value">Gaze effects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section-soft" id="showcase">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Gaze Effect Showcase</h2>
+            <p class="showcase-intro-text">
+    All gaze-effect images presented in this section are standardized to a spatial resolution of
+    <strong>1024 × 1024</strong>. The corresponding gaze coordinates are defined within the same
+    <strong>1024 × 1024</strong> reference space, with the coordinate origin located at the
+    <strong>lower-left corner</strong> of the image. The right panel displays the coordinate txt
+    file associated with the currently shown visualization.
+</p>
+
+        </div>
+
+        <div class="showcase-card">
+            <div class="showcase-layout">
+                <div class="showcase-left">
+    <div class="showcase-block-title top-title">Gaze PIC</div>
+
+    <div class="carousel" id="showcaseCarousel">
+        <button class="carousel-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+
+        <div class="carousel-track-container">
+            <div class="carousel-track">
+                <div class="carousel-slide active" data-txt="/static/showcase_txt/showcase1.txt">
+                    <img src="/static/images/showcase/showcase1.jpg" alt="Gaze effect showcase 1">
+                </div>
+                <div class="carousel-slide" data-txt="/static/showcase_txt/showcase2.txt">
+                    <img src="/static/images/showcase/showcase2.jpg" alt="Gaze effect showcase 2">
+                </div>
+                <div class="carousel-slide" data-txt="/static/showcase_txt/showcase3.txt">
+                    <img src="/static/images/showcase/showcase3.jpg" alt="Gaze effect showcase 3">
+                </div>
+                <div class="carousel-slide" data-txt="/static/showcase_txt/showcase4.txt">
+                    <img src="/static/images/showcase/showcase4.jpg" alt="Gaze effect showcase 4">
+                </div>
+                <div class="carousel-slide" data-txt="/static/showcase_txt/showcase5.txt">
+                    <img src="/static/images/showcase/showcase5.jpg" alt="Gaze effect showcase 5">
+                </div>
+                <div class="carousel-slide" data-txt="/static/showcase_txt/showcase6.txt">
+                    <img src="/static/images/showcase/showcase6.jpg" alt="Gaze effect showcase 6">
+                </div>
+                <div class="carousel-slide" data-txt="/static/showcase_txt/showcase7.txt">
+                    <img src="/static/images/showcase/showcase7.jpg" alt="Gaze effect showcase 7">
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-btn next" type="button" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots">
+        <button class="dot active" type="button" data-index="0"></button>
+        <button class="dot" type="button" data-index="1"></button>
+        <button class="dot" type="button" data-index="2"></button>
+        <button class="dot" type="button" data-index="3"></button>
+        <button class="dot" type="button" data-index="4"></button>
+        <button class="dot" type="button" data-index="5"></button>
+        <button class="dot" type="button" data-index="6"></button>
+    </div>
+</div>
+
+
+
+                <div class="showcase-right">
+                    <div class="txt-panel">
+                        <div class="txt-panel-header">
+                            <h3>Gaze Coordinate TXT</h3>
+                            <p id="txtFileName">showcase1.txt</p>
+                        </div>
+                        <pre id="showcaseTxtViewer">Loading...</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+
+    <section class="section section-soft" id="equipment">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Equipment Setup</h2>
+                <p>
+                    Gaze signals were collected with an HTC VIVE Pro Eye headset in a Unity-based environment using SteamVR.
+                    Data were sampled at 100 Hz, and each image remained on screen for 1.0 seconds.
+                </p>
+            </div>
+
+            <div class="equipment-card">
+                <div class="equipment-image-box">
+                    <img src="/static/images/vive_setup.png" alt="HTC VIVE Pro Eye acquisition setup">
+                </div>
+
+                <div class="equipment-text">
+                    <h3>Acquisition Setting</h3>
+                    <p>
+                        Gaze signals were collected with an HTC VIVE Pro Eye headset in a Unity-based environment using SteamVR.
+                        The acquisition pipeline includes the headset, tracking units, and a workstation for scene rendering and data recording.
+                    </p>
+                    <p>
+                        Data were sampled at 100 Hz, and each image remained on screen for 1.0 seconds during the experiment.
+                        Under this setting, each frame typically contains about 70 to 100 gaze points.
+                    </p>
+                    <p>
+                        The collected gaze signals were then organized into frame-level coordinate files and corresponding visualization images
+                        for subsequent anomaly detection analysis and website-based browsing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="structure">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Data Structure</h2>
+                <p>
+                    The platform manages two synchronized data sources for each frame:
+                    the gaze-overlay image and the coordinate txt file.
+                </p>
+            </div>
+
+            <div class="structure-grid">
+                <div class="structure-card">
+                    <div class="structure-step">1</div>
+                    <h3>Dataset</h3>
+                    <p>Shanghaitech and UBnormal are stored separately.</p>
+                </div>
+                <div class="structure-card">
+                    <div class="structure-step">2</div>
+                    <h3>Video</h3>
+                    <p>Each dataset contains multiple video folders.</p>
+                </div>
+                <div class="structure-card">
+                    <div class="structure-step">3</div>
+                    <h3>Frame</h3>
+                    <p>Each video folder stores frame-level gaze-overlay images.</p>
+                </div>
+                <div class="structure-card">
+                    <div class="structure-step">4</div>
+                    <h3>Coordinate TXT</h3>
+                    <p>Each frame is matched with its corresponding gaze coordinate file.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-soft" id="download">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Download</h2>
+            <p>
+                The benchmark can be accessed through Baidu Netdisk links below.
+                Please use the corresponding extraction code for each dataset.
+            </p>
+        </div>
+
+        <div class="download-grid">
+            <div class="download-card">
+                <div class="download-badge">Dataset</div>
+                <h3>Shanghaitech</h3>
+                <p>
+                    Gaze-annotated dataset collected on the Shanghaitech benchmark,
+                    including frame-level gaze-overlay images and coordinate txt files.
+                </p>
+                <a class="btn btn-primary" href=" https://pan.baidu.com/s/1IIHBOnpRidufgdXML-B6Ew" target="_blank">Download</a>
+                <p class="download-code">Extraction Code: <strong>f2ma</strong></p>
+            </div>
+
+            <div class="download-card">
+                <div class="download-badge">Dataset</div>
+                <h3>UBnormal</h3>
+                <p>
+                    Gaze-annotated dataset collected on the UBnormal benchmark,
+                    including frame-level gaze-overlay images and coordinate txt files.
+                </p>
+                <a class="btn btn-primary" href=" https://pan.baidu.com/s/1rgeORUDOCADQQP8DYiecHw" target="_blank">Download</a>
+                <p class="download-code">Extraction Code: <strong>t39i</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div>
+                <strong>Gaze-Annotated Video Anomaly Detection Benchmark</strong>
+            </div>
+            <div class="footer-note">
+                A light-blue styled browsing platform for gaze data visualization.
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/carousel.js"></script>
+</body>
+</html>

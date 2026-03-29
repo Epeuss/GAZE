@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ dataset_name }} - Dataset</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="subpage-body">
+    <header class="subpage-header">
+        <div class="container header-inner">
+            <div class="site-logo">GAVAD Benchmark</div>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-container">
+        <div class="page-banner">
+            <p class="page-kicker">Dataset View</p>
+            <h1>{{ dataset_name }}</h1>
+            <p>Browse all videos under this dataset.</p>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span>{{ dataset_name }}</span>
+        </div>
+
+        <section class="content-section">
+            <div class="section-heading left-align">
+                <h2>Video List</h2>
+            </div>
+
+            {% if videos %}
+                <div class="video-list">
+                    {% for video in videos %}
+                    <div class="video-card">
+                        <div>
+                            <h3>{{ video }}</h3>
+                            <p>Open this video to browse all frame images and annotations.</p>
+                        </div>
+                        <a class="btn btn-primary" href="/video/{{ dataset_name }}/{{ video }}">Open</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-box">No videos found in this dataset.</div>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

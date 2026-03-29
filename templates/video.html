@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ video_name }} - Video Frames</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="subpage-body">
+    <header class="subpage-header">
+        <div class="container header-inner">
+            <div class="site-logo">GAVAD Benchmark</div>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/dataset/{{ dataset_name }}">{{ dataset_name }}</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-container">
+        <div class="page-banner">
+            <p class="page-kicker">Video View</p>
+            <h1>{{ video_name }}</h1>
+            <p>Frame gallery for dataset {{ dataset_name }}</p>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/dataset/{{ dataset_name }}">{{ dataset_name }}</a>
+            <span>/</span>
+            <span>{{ video_name }}</span>
+        </div>
+
+        <section class="content-section">
+            <div class="section-heading left-align">
+                <h2>Frame Gallery</h2>
+            </div>
+
+            {% if frames %}
+                <div class="frame-grid">
+                    {% for frame in frames %}
+                    <div class="frame-card">
+                        <img src="/data/images/{{ dataset_name }}/{{ video_name }}/{{ frame }}" alt="{{ frame }}">
+                        <div class="frame-info">
+                            <p>{{ frame }}</p>
+                            <a class="btn btn-primary small-btn" href="/frame/{{ dataset_name }}/{{ video_name }}/{{ frame }}">View Detail</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-box">No frame images found.</div>
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

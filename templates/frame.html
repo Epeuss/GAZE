@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ frame_name }} - Frame Detail</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="subpage-body">
+    <header class="subpage-header">
+        <div class="container header-inner">
+            <div class="site-logo">GAVAD Benchmark</div>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/dataset/{{ dataset_name }}">{{ dataset_name }}</a>
+                <a href="/video/{{ dataset_name }}/{{ video_name }}">{{ video_name }}</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-container">
+        <div class="page-banner">
+            <p class="page-kicker">Frame Detail</p>
+            <h1>{{ frame_name }}</h1>
+            <p>Inspect image overlay and coordinate annotations for this frame.</p>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/dataset/{{ dataset_name }}">{{ dataset_name }}</a>
+            <span>/</span>
+            <a href="/video/{{ dataset_name }}/{{ video_name }}">{{ video_name }}</a>
+            <span>/</span>
+            <span>{{ frame_name }}</span>
+        </div>
+
+        <div class="frame-nav">
+            {% if prev_frame %}
+                <a class="btn btn-secondary" href="/frame/{{ dataset_name }}/{{ video_name }}/{{ prev_frame }}">Previous</a>
+            {% endif %}
+            {% if next_frame %}
+                <a class="btn btn-primary" href="/frame/{{ dataset_name }}/{{ video_name }}/{{ next_frame }}">Next</a>
+            {% endif %}
+        </div>
+
+        <section class="detail-layout">
+            <div class="detail-card">
+                <div class="section-heading left-align">
+                    <h2>Overlay Image</h2>
+                </div>
+                <div class="image-only-box">
+                    <img id="frameImage" src="{{ image_url }}" alt="{{ frame_name }}">
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <div class="section-heading left-align">
+                    <h2>Coordinate TXT</h2>
+                </div>
+                <pre>{{ txt_content }}</pre>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
